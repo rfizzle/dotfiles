@@ -1,0 +1,23 @@
+# Setup PATH
+export PATH="/usr/local/sbin:${PATH}"
+export PATH="${PATH}:${HOME}/.local/bin"
+export PATH="${PATH}:${HOME}/.bin"
+export PATH="${PATH}:${GOPATH}/bin"
+export PATH="${PATH}:/opt/homebrew/bin"
+
+# Setup default editor
+export EDITOR="subl"
+
+# Handle colors
+export TERM=xterm-256color
+
+# Setup GO paths
+export GOPATH="${HOME}/.go"
+export GOBIN="${GOPATH}/bin"
+export GOROOT="$(brew --prefix golang)/libexec"
+
+# Setup Fuzzy Finder
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# Enable history timestamps
+export HISTTIMEFORMAT="%d/%m/%y %T "

@@ -1,0 +1,31 @@
+passgen() {
+  ARG1=${1:-16} 
+  openssl rand -hex $ARG1 | tr -d '\n' | pbcopy
+}
+
+bcrypt() {
+  PASSWORD=$(echo $1 | tr -d '\n')
+  python3 -c "import bcrypt; print(bcrypt.hashpw('$PASSWORD',bcrypt.gensalt(log_rounds=12)))"
+}
+
+check-dupes() {
+  awk 'a[$0]++{print "dupes"; exit(1)}' $1 && echo "no dupes"
+}
+
+decode_base64_url() {
+  local len=$((${#1} % 4))
+  local result="$1"
+  if [ $len -eq 2 ]; then result="$1"'=='
+  elif [ $len -eq 3 ]; then result="$1"'=' 
+  fi
+  echo "$result" | tr '_-' '/+' | base64 -D
+}
+
+decode-jwt(){
+   decode_base64_url $(echo -n $1 | cut -d "." -f 1) | jq .
+   decode_base64_url $(echo -n $1 | cut -d "." -f 2) | jq .
+}
+
+cping(){
+  ping -c 1 $1 | awk -F" |:" '/from/{print $4}' | tr -d '\n' | pbcopy
+}

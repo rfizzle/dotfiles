@@ -1,0 +1,3 @@
+. ~/.rfizzle/path
+. ~/.rfizzle/alias
+. ~/.rfizzle/functions
