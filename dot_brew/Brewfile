@@ -1,8 +1,10 @@
 # Taps
 tap 'homebrew/cask'
+tap 'homebrew/cask-fonts'
 
 # Binaries
 brew 'ack'
+brew 'age'
 brew 'bat'
 brew 'coreutils'
 brew 'dos2unix'
@@ -22,6 +24,9 @@ brew 'starship'
 brew 'terraform'
 brew 'tree'
 brew 'wget'
+
+# Fonts
+cask 'font-fira-code-nerd-font'
 
 # Casks
 cask '1password'
