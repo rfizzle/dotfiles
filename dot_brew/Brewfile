@@ -24,6 +24,7 @@ brew 'starship'
 brew 'terraform'
 brew 'tree'
 brew 'wget'
+brew 'zellij'
 
 # Fonts
 cask 'font-fira-code-nerd-font'
